@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://csmgslf5aq5qt"]
+
+[ext_resource type="PackedScene" uid="uid://cuiw225yj6k4p" path="res://earth.tscn" id="1_bu4ag"]
+[ext_resource type="PackedScene" uid="uid://dse7cavee38vl" path="res://player_2d.tscn" id="2_6tfkg"]
+
+[node name="level_1_2d" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 460.0
+offset_top = 233.0
+offset_right = 595.0
+offset_bottom = 309.0
+theme_override_colors/font_color = Color(0.556863, 0.937255, 0.592157, 1)
+theme_override_font_sizes/font_size = 55
+text = "i text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="earth" parent="." instance=ExtResource("1_bu4ag")]
+position = Vector2(-1, 487)
+
+[node name="earth2" parent="." instance=ExtResource("1_bu4ag")]
+position = Vector2(221, 489)
+
+[node name="earth3" parent="." instance=ExtResource("1_bu4ag")]
+position = Vector2(665, 495)
+
+[node name="earth4" parent="." instance=ExtResource("1_bu4ag")]
+position = Vector2(445, 490)
+
+[node name="player_2d" parent="." instance=ExtResource("2_6tfkg")]
+position = Vector2(199, 313)
