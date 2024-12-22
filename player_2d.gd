@@ -1,6 +1,13 @@
-extends Node2D
+
+# получаем главный узел сцены
+extends CharacterBody2D
+
 
 
 
 func _process(delta: float) -> void:
-	self.position.y += 1
+	# position - переменная координат
+	if(position.y < 450):
+		# гравитация
+		position.y += 10
+	
