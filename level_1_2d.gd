@@ -21,6 +21,7 @@ var num = 1
 
 # нажатие кнопки присоединил через узел
 func _on_button_button_down() -> void:
+	#var num = 1
 	print("click")
 	num += 1
 	print(num)
