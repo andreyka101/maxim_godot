@@ -27,7 +27,7 @@ theme_override_font_sizes/font_size = 30
 text = "click"
 
 [node name="earth2D" parent="." instance=ExtResource("2_ffof0")]
-position = Vector2(260, 549)
+position = Vector2(253, 537)
 
 [node name="earth2D2" parent="." instance=ExtResource("2_ffof0")]
 position = Vector2(2897, 549)
@@ -36,7 +36,7 @@ position = Vector2(2897, 549)
 position = Vector2(1309, 552)
 
 [node name="earth2D4" parent="." instance=ExtResource("2_ffof0")]
-position = Vector2(787, 547)
+position = Vector2(782, 547)
 
 [node name="earth2D5" parent="." instance=ExtResource("2_ffof0")]
 position = Vector2(2370, 551)
@@ -45,6 +45,6 @@ position = Vector2(2370, 551)
 position = Vector2(1841, 552)
 
 [node name="player2D" parent="." instance=ExtResource("2_6tfkg")]
-position = Vector2(351, 325)
+position = Vector2(310, 218)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

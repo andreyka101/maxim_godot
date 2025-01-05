@@ -3,8 +3,10 @@
 extends Node2D
 
 
-# создание переменной
+# создание обычной переменной
 var num = 1
+# создание не изменяемой переменной
+const num_con = 7
 
 
 # метод _ready вызывается при полной загрузки сцены
@@ -21,6 +23,8 @@ var num = 1
 
 # нажатие кнопки присоединил через узел
 func _on_button_button_down() -> void:
+	# вывод переменной const
+	print(num_con)
 	#var num = 1
 	print("click")
 	num += 1
