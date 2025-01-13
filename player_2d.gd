@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 
 
-## метод _process - вызывается с каждым тактом процессора нужна для вычисления чего либо
+# метод _process - вызывается с каждым тактом процессора нужна для вычисления чего либо
 #func _process(delta: float) -> void:
 
 	## position - переменная координат
@@ -21,7 +21,7 @@ extends CharacterBody2D
 	
 	
 	
-## метод _physics_process - вызывается с каждым кадром нужна для расчета физики
+# метод _physics_process - вызывается с каждым кадром нужна для расчета физики
 func _physics_process(delta: float) -> void:
 	
 	## Input.is_action_pressed - обрабатывает зажатие клавиш
