@@ -33,7 +33,8 @@ func _physics_process(delta: float) -> void:
 	
 	## движение игрока влево или право 
 	if(Input.is_action_pressed("key_right")):
-		position.x += 300 * delta
+		self.position.x += 300 * delta
+		
 	if(Input.is_action_pressed("key_left")):
 		position.x -= 300 * delta
 		
@@ -49,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# is_on_floor() - возвращает true если сцена касается земли
-	print(is_on_floor())
+	#print(is_on_floor())
 	#print(not is_on_floor())
 	
 	

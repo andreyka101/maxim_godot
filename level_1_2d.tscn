@@ -1,20 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://csmgslf5aq5qt"]
+[gd_scene load_steps=10 format=3 uid="uid://csmgslf5aq5qt"]
 
 [ext_resource type="Script" path="res://level_1_2d.gd" id="1_mdgty"]
 [ext_resource type="PackedScene" uid="uid://bhgr64b02qsue" path="res://player_2d.tscn" id="2_6tfkg"]
 [ext_resource type="PackedScene" uid="uid://p4kmb5v18qyf" path="res://earth_2d.tscn" id="2_ffof0"]
+[ext_resource type="FontFile" uid="uid://k24osr8n6hah" path="res://Scumbria Regular.otf" id="2_ws7cc"]
+[ext_resource type="Script" path="res://button_2.gd" id="4_0kg43"]
+[ext_resource type="Texture2D" uid="uid://0odhl1wqx0sd" path="res://icon.svg" id="5_17wuy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7a43"]
+bg_color = Color(1, 0.336562, 0.423642, 1)
+border_width_left = 16
+border_width_top = 10
+border_width_right = 15
+border_width_bottom = 14
+border_color = Color(0.805653, 0.846717, 0, 1)
+corner_radius_top_left = 37
+corner_radius_top_right = 32
+corner_radius_bottom_right = 19
+corner_radius_bottom_left = 16
+expand_margin_left = 28.0
+expand_margin_top = 23.0
+expand_margin_right = 21.0
+expand_margin_bottom = 18.0
+shadow_color = Color(0.143574, 0.30728, 0.570592, 0.6)
+shadow_size = 6
+shadow_offset = Vector2(47, 29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8vfj"]
+bg_color = Color(0.73419, 1.19364e-05, 0.499688, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0uxh"]
+bg_color = Color(2.64719e-07, 0.356001, 0.379127, 1)
 
 [node name="level_1_2d" type="Node2D"]
 script = ExtResource("1_mdgty")
 metadata/_edit_vertical_guides_ = [371.0]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 460.0
-offset_top = 233.0
-offset_right = 595.0
-offset_bottom = 309.0
+offset_left = 515.0
+offset_top = 175.0
+offset_right = 650.0
+offset_bottom = 251.0
 theme_override_colors/font_color = Color(0.556863, 0.937255, 0.592157, 1)
-theme_override_font_sizes/font_size = 55
+theme_override_colors/font_shadow_color = Color(0.76725, 0.434139, 0.918072, 1)
+theme_override_colors/font_outline_color = Color(5.29438e-07, 0.460745, 0.583733, 1)
+theme_override_constants/shadow_offset_x = 55
+theme_override_constants/shadow_offset_y = 26
+theme_override_constants/outline_size = 25
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ws7cc")
+theme_override_font_sizes/font_size = 57
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7a43")
 text = "i text"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -23,8 +59,31 @@ vertical_alignment = 1
 offset_top = 8.0
 offset_right = 87.0
 offset_bottom = 75.0
+theme_override_colors/font_hover_color = Color(0.726878, 0.732568, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.767893, 0.502376, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0.386137, 0.629077, 1)
+theme_override_colors/font_color = Color(4.04298e-06, 0.707356, 0.976643, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_u8vfj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0uxh")
+button_mask = 3
 text = "click"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 154.0
+offset_top = 56.0
+offset_right = 473.0
+offset_bottom = 272.0
+pivot_offset = Vector2(150, 21)
+theme_override_colors/font_color = Color(0.887302, 0.383798, 0.595686, 1)
+theme_override_colors/icon_hover_color = Color(0.991238, 0.60837, 0.737531, 1)
+theme_override_font_sizes/font_size = 29
+text = "text"
+icon = ExtResource("5_17wuy")
+icon_alignment = 1
+vertical_icon_alignment = 2
+script = ExtResource("4_0kg43")
 
 [node name="earth2D" parent="." instance=ExtResource("2_ffof0")]
 position = Vector2(253, 537)
@@ -48,3 +107,4 @@ position = Vector2(1841, 552)
 position = Vector2(310, 218)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
