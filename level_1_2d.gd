@@ -30,6 +30,7 @@ func _on_button_button_down() -> void:
 	num += 1
 	print(num)
 	
+	# получаем другой узел
 	var but : Button = get_node("Button")
 	but.position.x = 500
 	
