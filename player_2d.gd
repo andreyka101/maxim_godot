@@ -3,7 +3,7 @@
 extends CharacterBody2D
 
 
-# @onready - создаёт переменную только после прогрузки узла
+# @onready - создаёт переменную только после прогрузки сцены
 @onready var sprite :AnimatedSprite2D  = get_node("AnimatedSprite2D")
 
 
@@ -87,6 +87,6 @@ func _physics_process(delta: float) -> void:
 		position.y += 300 * delta
 	
 	
-	
+
 	# move_and_slide() - обязательная функция нужна для скольжения тел друг о друга
 	move_and_slide()
