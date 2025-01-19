@@ -24,8 +24,8 @@ func _on_pressed() -> void:
 
 	# два способа изменить цвет текста
 	#add_theme_color_override("font_color" , "#A2231D")
-	set("theme_override_colors/font_color" , "#A2231D")
-	set("theme_override_colors/font_focus_color" , "#FFFF00")
+	set("theme_override_colors/font_color" , "A2231D")
+	set("theme_override_colors/font_focus_color" , "FFFF00")
 	
 	# меняем style
 	var style_box = StyleBoxFlat.new()

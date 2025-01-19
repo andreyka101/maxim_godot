@@ -85,6 +85,9 @@ icon_alignment = 1
 vertical_icon_alignment = 2
 script = ExtResource("4_0kg43")
 
+[node name="earth2D7" parent="." instance=ExtResource("2_ffof0")]
+position = Vector2(1126, 416)
+
 [node name="earth2D" parent="." instance=ExtResource("2_ffof0")]
 position = Vector2(253, 537)
 

@@ -229,7 +229,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4l6kn")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 13.0
 }, {
@@ -299,6 +299,7 @@ shape = SubResource("CapsuleShape2D_8mjeo")
 position = Vector2(4, -10)
 scale = Vector2(3.65625, 3.65625)
 sprite_frames = SubResource("SpriteFrames_tgady")
-animation = &"run"
+animation = &"jump"
 autoplay = "idel"
-frame_progress = 0.0246042
+frame = 7
+frame_progress = 1.0
