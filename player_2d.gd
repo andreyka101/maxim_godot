@@ -77,15 +77,16 @@ func _physics_process(delta: float) -> void:
 	#print(not is_on_floor())
 	
 	
-
-	# постоянная гравитация
+	
+#	# постоянная гравитация
 	#velocity.y += 1000 * delta
 	
-	# включаем гравитацию если игрок не стоит на земле
+	
+#	# включаем гравитацию если игрок не стоит на земле
 	if(not is_on_floor()):
 		position.y += 300 * delta
 	
 	
-
+	
 	# move_and_slide() - обязательная функция нужна для скольжения тел друг о друга
 	move_and_slide()
