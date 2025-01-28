@@ -107,7 +107,11 @@ position = Vector2(2370, 551)
 position = Vector2(1841, 552)
 
 [node name="player2D" parent="." instance=ExtResource("2_6tfkg")]
-position = Vector2(310, 218)
+position = Vector2(378, 315)
+
+[node name="earth2D8" parent="." instance=ExtResource("2_ffof0")]
+position = Vector2(-125, 237)
+rotation = 1.5708
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

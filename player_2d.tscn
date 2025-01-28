@@ -303,3 +303,18 @@ animation = &"jump"
 autoplay = "idel"
 frame = 7
 frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(0.9, 0.9)
+limit_left = 0
+limit_bottom = 640
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 100.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.28
+drag_top_margin = 0.67
+drag_right_margin = 0.29
+editor_draw_limits = true
+editor_draw_drag_margin = true

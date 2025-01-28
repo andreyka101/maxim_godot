@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 # @onready - создаёт переменную только после прогрузки сцены
 @onready var sprite :AnimatedSprite2D  = get_node("AnimatedSprite2D")
+@onready var camera :Camera2D  = get_node("Camera2D")
 
 
 var num_jump = 0
@@ -23,23 +24,41 @@ var num_jump = 0
 	
 # метод _physics_process - вызывается с каждым кадром нужна для расчета физики
 func _physics_process(delta: float) -> void:
+	#print(delta)
+	#print(2000*delta)
+	
 	
 	# Input.is_action_pressed - обрабатывает зажатие клавиш
 	#print(Input.is_action_pressedadad("key_right"))
 	
 	# Input.is_action_just_pressed - обрабатывает клик клавиш
 	#print(Input.is_action_just_pressed("key_right"))
-	
+	print(camera.rotation)
 	
 	# движение игрока влево или право 
 	if(Input.is_action_pressed("key_right")):
-		self.position.x += 400 * delta
+		# движение через position
+		#self.position.x += 400 * delta
+		# движение через velocity
+		self.velocity.x = 600
 		# переворачиваем спрайт
 		sprite.flip_h = false
+		# вращаем камеру
+		camera.rotation = 2 * delta
 	elif(Input.is_action_pressed("key_left")):
-		position.x -= 400 * delta
+		# движение через position
+		#position.x -= 400 * delta
+		# движение через velocity
+		velocity.x = -600
 		# переворачиваем спрайт
 		sprite.flip_h = true
+		# вращаем камеру
+		camera.rotation = -2 * delta
+	else:
+		velocity.x = 0
+		# вращаем камеру
+		camera.rotation = 0 * delta
+		
 	
 	# анимируем движение игрока
 	if(Input.is_action_pressed("key_right")and num_jump == 0):
@@ -51,14 +70,20 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	# прыжок игрока
-	if(num_jump != 0):
-		position.y -= num_jump * delta
-		num_jump -= 10
-		sprite.play("jump")
-	# запуск прыжок
+	# прыжок игрока через position 
+	#if(num_jump != 0):
+		#position.y -= num_jump * delta
+		#num_jump -= 10
+		#sprite.play("jump")
+	## запуск прыжок
+	#if(Input.is_action_just_pressed("key_up") and is_on_floor()):
+		#num_jump = 800
+	
+	
+	
+	# прыжок игрока через velocity
 	if(Input.is_action_just_pressed("key_up") and is_on_floor()):
-		num_jump = 800
+		velocity.y = -700
 		
 		
 	
@@ -84,7 +109,11 @@ func _physics_process(delta: float) -> void:
 	
 #	# включаем гравитацию если игрок не стоит на земле
 	if(not is_on_floor()):
-		position.y += 300 * delta
+		# гравитация через position
+		#position.y += 300 * delta
+		# гравитация через velocity
+		velocity.y += 1200 * delta
+		
 	
 	
 
