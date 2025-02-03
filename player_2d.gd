@@ -6,18 +6,23 @@ extends CharacterBody2D
 # @onready - создаёт переменную только после прогрузки сцены
 @onready var sprite :AnimatedSprite2D  = get_node("AnimatedSprite2D")
 @onready var camera :Camera2D  = get_node("Camera2D")
+@onready var text_coin = get_node("../CanvasLayer/Label")
 
 
 var num_jump = 0
+var num_coin = 0
 
 
 
 # метод _process - вызывается с каждым тактом процессора нужна для вычисления чего либо
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
 
 	#if(position.y < 450):
 		# гравитация
 		#position.y += 10
+		
+		
+		text_coin.text = "coin" + str(num_coin)
 		
 	
 	
@@ -33,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Input.is_action_just_pressed - обрабатывает клик клавиш
 	#print(Input.is_action_just_pressed("key_right"))
-	print(camera.rotation)
+	#print(camera.rotation)
 	
 	# движение игрока влево или право 
 	if(Input.is_action_pressed("key_right")):
