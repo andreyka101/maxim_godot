@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 		# гравитация
 		#position.y += 10
 		
-		
-		text_coin.text = "coin" + str(num_coin)
+		# отображаем количество монет
+		text_coin.text = "coin " + str(num_coin)
 		
 	
 	
