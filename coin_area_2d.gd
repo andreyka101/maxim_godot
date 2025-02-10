@@ -3,7 +3,7 @@ extends Area2D
 
 
 
-# сигнал срабатывает когда узел или сцена входит в coin_area2D
+# сигнал срабатывает когда сцена входит в coin_area2D
 func _on_body_entered(body: Node2D) -> void:
 	# body - узел или сцена
 	print(body)
