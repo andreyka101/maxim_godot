@@ -130,7 +130,7 @@ position = Vector2(1212, 239)
 position = Vector2(63, 365)
 
 [node name="coin_area2D5" parent="coins" instance=ExtResource("7_h4tyk")]
-position = Vector2(580, 358)
+position = Vector2(552, 255)
 
 [node name="coin_area2D6" parent="coins" instance=ExtResource("7_h4tyk")]
 position = Vector2(1031, 236)
