@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://bhgr64b02qsue"]
+[gd_scene load_steps=42 format=3 uid="uid://bhgr64b02qsue"]
 
 [ext_resource type="Script" path="res://player_2d.gd" id="1_0fhqs"]
 [ext_resource type="Texture2D" uid="uid://ctf6uwai5q2bn" path="res://sprites/knight.png" id="2_ksp6y"]
+[ext_resource type="AudioStream" uid="uid://jujgotcivf7l" path="res://coin_sound.mp3" id="3_huiut"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mjeo"]
 radius = 30.0
@@ -299,10 +300,8 @@ shape = SubResource("CapsuleShape2D_8mjeo")
 position = Vector2(4, -10)
 scale = Vector2(3.65625, 3.65625)
 sprite_frames = SubResource("SpriteFrames_tgady")
-animation = &"jump"
+animation = &"run"
 autoplay = "idel"
-frame = 7
-frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
@@ -320,3 +319,6 @@ drag_top_margin = 0.67
 drag_right_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_huiut")

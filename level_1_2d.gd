@@ -3,6 +3,16 @@
 extends Node2D
 
 
+
+# HSlider - ползунок 
+@onready var hs_lider:HSlider = $CanvasLayer/HSlider
+# AudioServer - хранилище аудио шин
+# AudioServer.get_bus_index(n) - получаем индекс шины по имени n
+var bus_index = AudioServer.get_bus_index("Master")
+
+
+
+
 # создание обычной переменной
 var num = 1
 # создание не изменяемой переменной
@@ -16,8 +26,18 @@ const num_con = 7
 
 
 # метод _process вызывается при отрисовки каждого кадра 
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
 	#print("hello")
+	#print(hs_lider.value)
+	#print(bus_index)
+	
+
+
+	# linear_to_db - преобразовывает float в децибелы
+	print(linear_to_db(hs_lider.value))
+	# AudioServer.set_bus_volume_db - меняем громкость шины по индексу
+	AudioServer.set_bus_volume_db(bus_index , linear_to_db(hs_lider.value))
+	
 
 
 

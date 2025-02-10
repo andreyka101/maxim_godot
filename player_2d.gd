@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var sprite :AnimatedSprite2D  = get_node("AnimatedSprite2D")
 @onready var camera :Camera2D  = get_node("Camera2D")
 @onready var text_coin = get_node("../CanvasLayer/Label")
+# AudioStreamPlayer - воспроизводит звук
+@onready var audio_coin :AudioStreamPlayer = $AudioStreamPlayer
 
 
 var num_jump = 0
@@ -15,14 +17,14 @@ var num_coin = 0
 
 
 # метод _process - вызывается с каждым тактом процессора нужна для вычисления чего либо
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
 
 	#if(position.y < 450):
 		# гравитация
 		#position.y += 10
 		
 		# отображаем количество монет
-		text_coin.text = "coin " + str(num_coin)
+		
 		
 	
 	
@@ -66,11 +68,11 @@ func _physics_process(delta: float) -> void:
 		
 	
 	# анимируем движение игрока
-	if(Input.is_action_pressed("key_right")and num_jump == 0):
+	if(Input.is_action_pressed("key_right")and velocity.y == 0):
 		sprite.play("run")
-	elif(Input.is_action_pressed("key_left")and num_jump == 0):
+	elif(Input.is_action_pressed("key_left")and velocity.y == 0):
 		sprite.play("run")
-	elif(num_jump == 0):
+	elif(velocity.y == 0):
 		sprite.play("idel")
 	
 	
@@ -89,6 +91,9 @@ func _physics_process(delta: float) -> void:
 	# прыжок игрока через velocity
 	if(Input.is_action_just_pressed("key_up") and is_on_floor()):
 		velocity.y = -700
+		
+	if(velocity.y != 0):
+		sprite.play("jump")
 		
 		
 	

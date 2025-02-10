@@ -118,7 +118,7 @@ rotation = 1.5708
 [node name="coins" type="Node" parent="."]
 
 [node name="coin_area2D" parent="coins" instance=ExtResource("7_h4tyk")]
-position = Vector2(1663, 363)
+position = Vector2(1571, 359)
 
 [node name="coin_area2D2" parent="coins" instance=ExtResource("7_h4tyk")]
 position = Vector2(771, 366)
@@ -132,6 +132,12 @@ position = Vector2(63, 365)
 [node name="coin_area2D5" parent="coins" instance=ExtResource("7_h4tyk")]
 position = Vector2(580, 358)
 
+[node name="coin_area2D6" parent="coins" instance=ExtResource("7_h4tyk")]
+position = Vector2(1031, 236)
+
+[node name="coin_area2D7" parent="coins" instance=ExtResource("7_h4tyk")]
+position = Vector2(1774, 350)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -141,9 +147,35 @@ offset_right = 147.0
 offset_bottom = 108.0
 theme_override_colors/font_color = Color(0.924272, 0.930262, 0, 1)
 theme_override_font_sizes/font_size = 34
-text = "coin 5"
+text = "coin 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 18.0
+offset_top = 151.0
+offset_right = 146.0
+offset_bottom = 175.0
+max_value = 1.0
+step = 0.0
+value = 0.5
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 41.0
+offset_top = 109.0
+offset_right = 110.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 20
+text = "audio
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="coin_area2D" parent="." instance=ExtResource("7_h4tyk")]
+position = Vector2(1981, 348)
+
+[node name="coin_area2D2" parent="." instance=ExtResource("7_h4tyk")]
+position = Vector2(2251, 353)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

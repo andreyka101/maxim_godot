@@ -18,8 +18,13 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		# меняем переменную узлу или сцене
 		body.num_coin += 1
-		print(body.num_coin)
-
+		#print(body.num_coin)
+		
+		body.text_coin.text = "coin " + str(body.num_coin)
+		
+		# запускаем аудио
+		body.audio_coin.play()
+		
 		# удаляем узел или сцена
 		queue_free()
 		#self.queue_free()
