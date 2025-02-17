@@ -28,7 +28,11 @@ const num_con = 7
 # метод _process вызывается при отрисовки каждого кадра 
 func _process(delta: float) -> void:
 	#print("hello")
+
+	# получаем значение ползунка
 	#print(hs_lider.value)
+
+	# индекс шины
 	#print(bus_index)
 	
 
