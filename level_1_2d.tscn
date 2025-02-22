@@ -1102,7 +1102,7 @@ position = Vector2(1309, 552)
 position = Vector2(782, 547)
 
 [node name="player2D" parent="." instance=ExtResource("2_6tfkg")]
-position = Vector2(3272, 358)
+position = Vector2(3208, 391)
 
 [node name="earth2D8" parent="." instance=ExtResource("2_ffof0")]
 position = Vector2(-125, 237)
