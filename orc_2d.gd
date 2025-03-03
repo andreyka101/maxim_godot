@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 	
 	
 	
-	# если hp меньше или ровно нулю меняем сцену
+	# если hp игрока меньше или ровно нулю тогда меняем сцену
 	if(player.hp_num_player <= 0):
 		# get_tree() - дерево сцен
 		#print(get_tree())
