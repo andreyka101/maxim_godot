@@ -18,6 +18,8 @@ func _on_body_entered(body: Node2D) -> void:
 		#body.position = Vector2(378, 315)
 		body.num_coin += 1
 		#print(body.num_coin)
+
+		# отображаем количество монет
 		body.text_coin.text = "coin " + str(body.num_coin)
 		
 

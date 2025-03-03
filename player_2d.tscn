@@ -300,8 +300,10 @@ shape = SubResource("CapsuleShape2D_8mjeo")
 position = Vector2(4, -10)
 scale = Vector2(3.65625, 3.65625)
 sprite_frames = SubResource("SpriteFrames_tgady")
-animation = &"run"
+animation = &"jump"
 autoplay = "idel"
+frame = 7
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false

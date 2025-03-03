@@ -26,21 +26,13 @@ const num_con = 7
 
 
 # метод _process вызывается при отрисовки каждого кадра 
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
 	#print("hello")
-
-	# получаем значение ползунка
-	#print(hs_lider.value)
-
-	# индекс шины
-	#print(bus_index)
 	
-
-
+	
 	# linear_to_db - преобразовывает float в децибелы
-	print(linear_to_db(hs_lider.value))
-	# AudioServer.set_bus_volume_db - меняем громкость шины по индексу
-	AudioServer.set_bus_volume_db(bus_index , linear_to_db(hs_lider.value))
+	#print(linear_to_db(hs_lider.value))
+
 	
 
 
@@ -60,3 +52,18 @@ func _on_button_button_down() -> void:
 	
 	
 	
+
+
+func _on_h_slider_drag_ended(value_changed: bool) -> void:
+	# получаем значение ползунка
+	#print(hs_lider.value)
+
+	# индекс шины
+	#print(bus_index)
+	
+
+
+	# linear_to_db - преобразовывает float в децибелы
+	print(linear_to_db(hs_lider.value))
+	# AudioServer.set_bus_volume_db - меняем громкость шины по индексу
+	AudioServer.set_bus_volume_db(bus_index , linear_to_db(hs_lider.value))

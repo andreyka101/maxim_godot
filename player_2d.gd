@@ -9,22 +9,26 @@ extends CharacterBody2D
 @onready var text_coin = get_node("../CanvasLayer/Label")
 # AudioStreamPlayer - воспроизводит звук
 @onready var audio_coin :AudioStreamPlayer = $AudioStreamPlayer
+@onready var label_hp :Label = $"../CanvasLayer/Label_HP"
 
 
 var num_jump = 0
 var num_coin = 0
+var hp_num_player = 100
+var hit_push = false
 
 
 
 # метод _process - вызывается с каждым тактом процессора нужна для вычисления чего либо
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
 
 	#if(position.y < 450):
 		# гравитация
 		#position.y += 10
 		
-		# отображаем количество монет
-		
+	
+	# отображаем количество hp
+	label_hp.text = "hp " + str(hp_num_player)
 		
 	
 	
@@ -61,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 		# вращаем камеру
 		camera.rotation = -2 * delta
-	else:
+	elif(not hit_push):
 		velocity.x = 0
 		# вращаем камеру
 		camera.rotation = 0 * delta
@@ -123,6 +127,14 @@ func _physics_process(delta: float) -> void:
 		#position.y += 300 * delta
 		# гравитация через velocity
 		velocity.y += 1200 * delta
+	
+	
+	
+	
+	#if(hit_push and is_on_floor()):
+		#print("ik")
+		#velocity.x += 100 * delta
+		#hit_push = false
 		
 	
 	
