@@ -5,22 +5,27 @@ extends CharacterBody2D
 @onready var player:CharacterBody2D = $"../player2D"
 @onready var sprite :AnimatedSprite2D  = get_node("AnimatedSprite2D")
 var near_player = false
+var dead_orc = false
 
 
 
 func _process(delta: float) -> void:
+	#await 
+	
+	
+	
 	#print(player)
 	# меняем переменную игрока
 	#player.text_coin.text = "x"
 	
 	# если игрок рябом двигаемся к нему
-	if(player.position.x < self.position.x - 30 and near_player):
+	if(player.position.x < self.position.x - 30 and near_player and not dead_orc):
 		self.velocity.x = - 300
 		sprite.flip_h = true
-	elif(player.position.x > position.x + 30 and near_player):
+	elif(player.position.x > position.x + 30 and near_player and not dead_orc):
 		velocity.x = 300
 		sprite.flip_h = false
-	else:
+	elif(not dead_orc):
 		velocity.x = 0
 		sprite.play("idel")
 		
@@ -105,4 +110,8 @@ func _on_area_atack_body_entered(body: Node2D) -> void:
 # орк умирает если игрок его атакует 
 func _on_area_2d_player_body_entered(body: Node2D) -> void:
 	if(body.name == "player2D"):
-		queue_free()
+		dead_orc = true
+		sprite.play("dead")
+		sprite.animation_finished
+		
+		#queue_free()

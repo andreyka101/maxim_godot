@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://7tgcpo77o3pq"]
+[gd_scene load_steps=5 format=3 uid="uid://7tgcpo77o3pq"]
+
+[ext_resource type="Texture2D" uid="uid://cvjbcfab0xugd" path="res://osvezhit_y0cwa2245fid_512.png" id="1_ge4pd"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_pjwct"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vs0sr"]
 bg_color = Color(0, 0.379313, 0.60183, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w80v"]
+bg_color = Color(0.831373, 0, 0, 0)
+
 [node name="Game_over" type="Node2D"]
+script = ExtResource("1_pjwct")
 
 [node name="Label2" type="Label" parent="."]
 offset_right = 1153.0
@@ -26,3 +33,19 @@ theme_override_font_sizes/font_size = 43
 text = "game over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 274.0
+offset_right = 662.0
+offset_bottom = 432.0
+rotation = 0.246091
+pivot_offset = Vector2(79, 79)
+theme_override_styles/focus = SubResource("StyleBoxFlat_1w80v")
+icon = ExtResource("1_ge4pd")
+flat = true
+expand_icon = true
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

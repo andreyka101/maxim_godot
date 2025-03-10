@@ -140,9 +140,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6yn5j")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -198,9 +198,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4l0"]
-size = Vector2(13, 19)
+size = Vector2(13, 19.4998)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwh6x"]
+radius = 30.0
 height = 136.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhfwn"]
@@ -219,19 +220,21 @@ debug_color = Color(1, 0.942678, 0.513153, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5.535, 5.535)
 sprite_frames = SubResource("SpriteFrames_5tqnq")
-animation = &"run"
+animation = &"idel"
 
 [node name="Area2D_player" type="Area2D" parent="."]
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_player"]
-position = Vector2(-41.5, 0)
+position = Vector2(-41.5, -0.249924)
+scale = Vector2(-0.800079, 1.96971)
 shape = SubResource("RectangleShape2D_ln4l0")
 debug_color = Color(0.173688, 0, 0.701961, 1)
 
 [node name="Area_atack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_atack"]
+position = Vector2(0, 13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rwh6x")
 debug_color = Color(0.846222, 0.0817904, 0, 0.42)
