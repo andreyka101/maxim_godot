@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://bhgr64b02qsue"]
 
-[ext_resource type="Script" path="res://player_2d.gd" id="1_0fhqs"]
+[ext_resource type="Script" uid="uid://vc03vvrix4w5" path="res://player_2d.gd" id="1_0fhqs"]
 [ext_resource type="Texture2D" uid="uid://ctf6uwai5q2bn" path="res://sprites/knight.png" id="2_ksp6y"]
 [ext_resource type="AudioStream" uid="uid://jujgotcivf7l" path="res://coin_sound.mp3" id="3_huiut"]
 
@@ -308,6 +308,7 @@ frame_progress = 1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
 zoom = Vector2(0.9, 0.9)
+process_callback = 0
 limit_left = 0
 limit_bottom = 640
 position_smoothing_enabled = true

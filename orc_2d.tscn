@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://njjn1kmfomor"]
 
-[ext_resource type="Script" path="res://orc_2d.gd" id="1_e5mjw"]
+[ext_resource type="Script" uid="uid://cyyb4tqlmkihx" path="res://orc_2d.gd" id="1_e5mjw"]
 [ext_resource type="Texture2D" uid="uid://lsssmcfmxndk" path="res://Orc.png" id="1_sy6v4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brp4j"]
@@ -123,8 +123,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vy4no")
 }],
-"loop": true,
-"name": &"atact",
+"loop": false,
+"name": &"attack",
 "speed": 10.0
 }, {
 "frames": [{
@@ -142,7 +142,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,7 +220,10 @@ debug_color = Color(1, 0.942678, 0.513153, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5.535, 5.535)
 sprite_frames = SubResource("SpriteFrames_5tqnq")
-animation = &"idel"
+animation = &"dead"
+autoplay = "idel"
+frame = 3
+frame_progress = 1.0
 
 [node name="Area2D_player" type="Area2D" parent="."]
 rotation = 1.5708

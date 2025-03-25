@@ -67,3 +67,14 @@ func _on_h_slider_drag_ended(value_changed: bool) -> void:
 	print(linear_to_db(hs_lider.value))
 	# AudioServer.set_bus_volume_db - меняем громкость шины по индексу
 	AudioServer.set_bus_volume_db(bus_index , linear_to_db(hs_lider.value))
+	
+	
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if(toggled_on):
+		# игра открывается в полно экраном режиме
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		# игра открывается в оконном режиме
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

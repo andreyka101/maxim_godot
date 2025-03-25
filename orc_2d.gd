@@ -6,12 +6,11 @@ extends CharacterBody2D
 @onready var sprite :AnimatedSprite2D  = get_node("AnimatedSprite2D")
 var near_player = false
 var dead_orc = false
+var orc_attack = false
 
 
 
 func _process(delta: float) -> void:
-	#await 
-	
 	
 	
 	#print(player)
@@ -19,18 +18,20 @@ func _process(delta: float) -> void:
 	#player.text_coin.text = "x"
 	
 	# если игрок рябом двигаемся к нему
-	if(player.position.x < self.position.x - 30 and near_player and not dead_orc):
+	if(player.position.x < self.position.x - 30 and near_player and not dead_orc and not orc_attack):
 		self.velocity.x = - 300
 		sprite.flip_h = true
-	elif(player.position.x > position.x + 30 and near_player and not dead_orc):
+	elif(player.position.x > position.x + 30 and near_player and not dead_orc and not orc_attack):
 		velocity.x = 300
 		sprite.flip_h = false
-	elif(not dead_orc):
+	elif(not dead_orc and not orc_attack):
 		velocity.x = 0
 		sprite.play("idel")
 		
-	if(velocity.x != 0):
+	if(velocity.x != 0 and not orc_attack):
 		sprite.play("run")
+	
+	#print(velocity)
 	
 	
 	
@@ -40,9 +41,6 @@ func _process(delta: float) -> void:
 		#position.y += 300 * delta
 		# гравитация через velocity
 		velocity.y += 1200 * delta
-		
-	# move_and_slide() - обязательная функция нужна для скольжения тел друг о друга
-	move_and_slide()
 
 	
 	
@@ -78,6 +76,11 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://game_over.tscn")
 		
 	
+		
+	
+		
+	# move_and_slide() - обязательная функция нужна для скольжения тел друг о друга
+	move_and_slide()
 
 
 
@@ -97,6 +100,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_area_atack_body_entered(body: Node2D) -> void:
 	# если игрок зашёл в зону атаки тогда толкаем его
 	if(body.name == "player2D"):
+		sprite.play("attack")
+		orc_attack = true
+		await get_tree().create_timer(0.1).timeout
 		player.hp_num_player -= 20
 		player.hit_push = true
 		player.velocity.y = -900
@@ -104,14 +110,24 @@ func _on_area_atack_body_entered(body: Node2D) -> void:
 			player.velocity.x = - 500
 		elif(player.position.x > position.x and near_player):
 			player.velocity.x = 500
+		await sprite.animation_finished
+		orc_attack = false
+		
 		
 		
 
 # орк умирает если игрок его атакует 
 func _on_area_2d_player_body_entered(body: Node2D) -> void:
 	if(body.name == "player2D"):
+		#print("a1")
+		#await get_tree().create_timer(4).timeout
+		#print("b2")
+		#print("с3")
+		
+		
+		
 		dead_orc = true
 		sprite.play("dead")
-		sprite.animation_finished
+		await sprite.animation_finished
+		queue_free()
 		
-		#queue_free()

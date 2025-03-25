@@ -35,6 +35,10 @@ func _process(delta: float) -> void:
 	
 # метод _physics_process - вызывается с каждым кадром нужна для расчета физики
 func _physics_process(delta: float) -> void:
+	#print("a1")
+	#await get_tree().create_timer(6).timeout
+	#print("b2")
+	#print("с3")
 	#print(delta)
 	#print(2000*delta)
 	
